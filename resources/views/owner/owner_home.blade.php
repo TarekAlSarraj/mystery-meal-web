@@ -1,6 +1,6 @@
-@extends ('admin/layout')
+@extends ('owner/layout')
 
-@section ('admin_home_content')
+@section ('owner_home_content')
 
  
 

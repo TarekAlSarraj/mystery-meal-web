@@ -31,12 +31,9 @@ class AuthServiceProvider extends ServiceProvider
             return $user->profile_type == 'App\Admin';
         });
 
-        Gate::define('access-client', function ($user) {
-            return $user->profile_type == 'App\Client';
+        Gate::define('access-owner', function ($user) {
+            return $user->profile_type == 'App\Owner';
         });
 
-        Gate::define('access-employee', function ($user) {
-            return $user->profile_type == 'App\Employee';
-        });
     }
 }

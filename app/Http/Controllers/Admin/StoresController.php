@@ -4,15 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
-use App\Admin;
-use App\Owner;
+use App\Store;
+use App\Specialemp;
 
-class AdminController extends Controller
+
+class StoresController extends Controller
 {
-    //
-
     
-       
      /**
      * Create a new controller instance.
      *
@@ -22,17 +20,28 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
-
- 
+    
     public function index(){
         
         // Renders a list of a resource
 
-        $owners = Owner::all();
-        return view('/admin/admin_home' , ['owners' => $owners] );
+        $stores = Store::latest()->get();
+
+        return view('/admin/stores.index', ['stores' => $stores]);
+    }
 
     
-}
+    public function show_info(Store $store){
+        
+        // Shows a single resource 
+
+        return view('/admin/stores.show_info', ['store' => $store ]);
+
+
+    }
+
+
+
 
 
 

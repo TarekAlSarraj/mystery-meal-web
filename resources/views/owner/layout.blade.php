@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Mystery Meal</title>
+    <title>Mystery Meal</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -64,9 +64,9 @@
 
               <!-- Nav Item - Charts -->
               <li class="nav-item">
-                <a class="nav-link" href="/admin/owners">
+                <a class="nav-link" href="/owner/stores">
                     <i class="fas fa-fw fa-user-tie"></i>
-                    <span>Store Owners</span></a>
+                    <span>My Stores</span></a>
             </li>
 
             
@@ -387,7 +387,7 @@
     </nav>
     <!-- End of Topbar -->
       
-        @yield('admin_home_content')
+        @yield('owner_home_content')
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -460,6 +460,7 @@
 
     <!-- Page level custom scripts -->
     <script src="/js/demo/datatables-demo.js"></script>
+    <script src="/js/myjs.js"></script>
 
 </body>
 

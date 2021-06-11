@@ -13,10 +13,16 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                    <img src="/img/mystery_meal_new.png" alt="" height="300" width="300">
+                    </div>
                     <div class="col-lg-6">
                         <div class="p-5">
+                            <div>
+                           
+                            </div>
                             <div class="text-center">
+                             
                                 <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                             </div>
                             <form class="user" method="POST" action="{{ route('login') }}">

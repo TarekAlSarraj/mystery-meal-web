@@ -23,13 +23,10 @@ class RedirectIfAuthenticated
             if(Auth::user()->profile_type=='App\Admin'){
                 return redirect('/admin');
             }
-            else  if(Auth::user()->profile_type=='App\Client'){
-                return redirect('/client');
+            else  if(Auth::user()->profile_type=='App\Owner'){
+                return redirect('/owner');
             }
 
-            else  if(Auth::user()->profile_type=='App\Employee'){
-                return redirect('/employee');
-            }
             
         }
 

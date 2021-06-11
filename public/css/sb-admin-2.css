@@ -159,13 +159,13 @@ sup {
 }
 
 a {
-  color: #4e73df;
+  color: #0A7C6E;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #224abe;
+  color: #be2c22;
   text-decoration: underline;
 }
 
@@ -2348,14 +2348,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #0A7C6E;
+  border-color: #0A7C6E;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #2e59d9;
-  border-color: #2653d4;
+  background-color: #26d4bd;
+  border-color: #26d49a;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -6374,7 +6374,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #4e73df !important;
+  background-color: #0A7C6E !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -9555,7 +9555,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #4e73df !important;
+  color: #0A7C6E !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9863,8 +9863,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-color: #0A7C6E;
+  background-image: linear-gradient(180deg, #4edfd8 10%, #0a7064 100%);
   background-size: cover;
 }
 
@@ -10823,11 +10823,15 @@ a:focus {
   }
 }
 
-.bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
-  background-position: center;
-  background-size: cover;
+.bg-login-image img {
+  margin: auto;
+  align-items: center;
+  display:flex;
+  justify-content: center;
+  vertical-align: middle;
+  padding:30px;
 }
+
 
 .bg-register-image {
   background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
