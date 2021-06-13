@@ -15,12 +15,12 @@
 <h1 class="h3 mb-0 text-primary">Create Store <i class="fas fa-store"></i></h1>
 <br><br>
 
-  <form method="POST" action="/owner/stores">
+  <form method="POST" action="/owner/stores" enctype="multipart/form-data">
   @csrf
 
 <div class="row">
 
-  <div class="col-lg-3 mb-4">
+<div class="col-lg-3 mb-4">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -30,6 +30,27 @@
              
                       <input type="text" class="form-control form-control-user @error('s_name') border-danger @enderror" id="s_name" name="s_name" 
                       value="{{ old('s_name') }}" placeholder=" Store Name ...">
+                      @error('s_name') 
+                      <br>
+                      <p class="text-danger"><i class="fas fa-exclamation-triangle"></i> Please Enter The Store's Name! </p>
+                      @enderror
+                     
+
+            </div>
+          </div>
+
+  </div> 
+
+  <div class="col-lg-3 mb-4">
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Store Picture</h6>
+            </div>
+            <div class="card-body">
+             
+            <input type="file" class="form-control form-control-user " id="s_picture" name="s_picture"  
+              accept="image/*" >
                       @error('s_name') 
                       <br>
                       <p class="text-danger"><i class="fas fa-exclamation-triangle"></i> Please Enter The Store's Name! </p>
@@ -77,6 +98,10 @@
 
   </div>
 
+  </div>
+
+  <div class="row">
+
   <div class="col-lg-3 mb-4">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -92,11 +117,6 @@
           </div>
 
   </div>
-
-</div>
-
-<div class="row">
-
 
 
   <div class="col-lg-3 mb-4">

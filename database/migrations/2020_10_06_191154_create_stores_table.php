@@ -21,8 +21,9 @@ class CreateStoresTable extends Migration
                   ->constrained()
                   ->onDelete('cascade');
 
-
+           
             $table->string('s_name');
+            $table->string('s_picture')->nullable();
             $table->string('s_category')->nullable();
             $table->string('s_address')->nullable();
             $table->string('s_phone')->nullable();

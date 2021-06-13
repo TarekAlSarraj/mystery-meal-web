@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Owner;
 use ILluminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller as Controller;
 use App\Store;
+use Illuminate\Http\Request;
 
 use App\Items;
 
@@ -39,6 +40,10 @@ class StoresController extends Controller
 
             $items = Items::where('store_id','=',$store->id)->get();
             return view('/owner/stores.show_info', ['store' => $store , 'items' => $items]);
+             
+            $files = $Items->My_files;
+        
+                
         }
 
         else
@@ -55,7 +60,7 @@ class StoresController extends Controller
 
     }
 
-    public function store_info(){
+    public function store_info(Request $request){
 
         // Persists the new resource
 
@@ -69,6 +74,10 @@ class StoresController extends Controller
             's_close_time' => 'nullable',
         ]));
         
+        if($request->hasFile('s_picture')) {
+            $store->s_picture = $request->file('s_picture')->store('img', 'public');
+        }
+
         $store->owner_id=Auth::user()->profile_id;
         $store->save();
 
@@ -89,7 +98,7 @@ class StoresController extends Controller
 
     }
 
-    public function update_info(Store $store){
+    public function update_info(Store $store , Request $request){
 
         // Persists the edited resource
         
@@ -103,6 +112,12 @@ class StoresController extends Controller
       
 
        ])); 
+
+
+       if($request->hasFile('s_picture')) {
+        $store->s_picture = $request->file('s_picture')->store('img', 'public');
+        $store->save();
+        }
         
         return redirect('/owner/stores/' . $store->id);
 
@@ -117,18 +132,22 @@ class StoresController extends Controller
     }
 
 
-    public function store_item(Store $store){
+    public function store_item(Store $store, Request $request){
 
         // Persists the new resource
 
 
         $item=Items::create(request()->validate([
             
-            'picture' => 'nullable',
+            
             'title' => 'nullable',
             'category' => 'nullable',
             'price' => 'nullable',
         ]));
+
+        if($request->hasFile('picture')) {
+            $item->picture = $request->file('picture')->store('img', 'public');
+        }
         
         $item->store_id=$store->id;
         $item->save();
@@ -138,24 +157,32 @@ class StoresController extends Controller
 
     }
 
-    public function update_items(Store $store, Items $item){
+    public function update_items(Store $store, Items $item, Request $request){
 
         // Persists the edited resource
         
        $item->update([
 
-        'picture' => request('picture'.$item->id),
-        'title' => request('title'.$item->id),
-        'category' => request('category'.$item->id),
-        'price' => request('price'.$item->id),
+        'title' => request('title'),
+        'category' => request('category'),
+        'price' => request('price'),
        
 
        ]); 
+
+       if($request->hasFile('picture')) {
+        $item->picture = $request->file('picture')->store('img', 'public');
+        $item->save();
+        }
+
         return redirect('/owner/stores/' . $store->id);
 
 
 
     }
+
+
+
 
 
 

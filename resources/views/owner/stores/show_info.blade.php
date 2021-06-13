@@ -12,14 +12,16 @@
 
 <!-- Content Row -->
 <br>
-<h1 class="h3 mb-0 text-primary">{{$store->s_name}} Store <i class="fas fa-store"></i> 
+<h1 class="h3 mb-0 text-primary">
+<img src="{{ url('storage/'.$store->s_picture) }}" alt="No Image" class="img-thumbnail imgsize">
+<b>{{$store->s_name}}</b>
 <button class=" btn-primary btn" onclick="showEdit(this.id,'showEdit','storeInfo','saveButton');" id="showEditButton">
 <i class="fas fa-pencil-alt "></i>
 </button>
 </h1>
 <br><br>
 
-<form method="POST" action="/owner/stores/{{$store->id}}">
+<form method="POST" action="/owner/stores/{{$store->id}}" enctype="multipart/form-data">
   @csrf
   @method('PUT')
 
@@ -30,23 +32,40 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Store Name</h6>
-            </div>
-            <div class="card-body">
             <div class="storeInfo">
-            {{$store->s_name}}
-            </div>
-  
+              <h6 class="m-0 font-weight-bold text-primary">Store Name</h6>
+              </div>
+
+
+
               <div class="showEdit" style="display:none">
                     
-              <input type="text" class="form-control form-control-user " id="s_name" name="s_name"  
-                        value="{{ $store->s_name }}" >
+                    <input type="text" class="form-control form-control-user " id="s_name" name="s_name"  
+                              value="{{ $store->s_name }}" >
+                    </div>
+              
+            </div>
+            <div class="card-body">
+
+
+
+              <div class="storeInfo">
+            {{$store->s_name}}
+            </div>
+
+            
+              <div class="showEdit" style="display:none">
+                    
+              <input type="file" class="form-control form-control-user " id="s_picture" name="s_picture"  
+              accept="image/*" value="{{ $store->s_picture }}" >
               </div>
 
             </div>
           </div>
 
   </div>
+
+  
 
   <div class="col-lg-3 mb-4">
           <!-- DataTales Example -->
@@ -169,7 +188,7 @@
 
 <!-- Add Items Div -->
 <div id="addItem" style="display:none">
-  <form method="POST" action="/owner/stores/{{$store->id}}">
+  <form method="POST" action="/owner/stores/{{$store->id}}" enctype="multipart/form-data">
     @csrf
 
 
@@ -184,7 +203,7 @@
           <div class="card-body">
            
           <input type="file" class="form-control form-control-user"  id="picture" name="picture" 
-            accept="image/*" onchange="toggleButton(this.id,'picture');">
+            accept="image/*">
                     
                    
 
@@ -260,124 +279,104 @@
 
 
 
-@foreach ($items as $item)
-
 
 <div class="row">
-
+@foreach ($items as $item)
   <div class="col-lg-3 mb-4">
           <!-- DataTales Example -->
+
+        
+
+
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Item Picture
+              
+          
 
-
-              <button class="btn" onclick="showEdit(this.id,'Edit{{$item->id}}','Item{{$item->id}}','save{{$item->id}}Button');" id="Button{{$item->id}}">
+              <div class="Item{{$item->id}}">
+              <h6 class="m-0 font-weight-bold text-primary" style="float:left">{{$item->title}}</h6>
+              <button class="btn" onclick="showEdit(this.id,'Edit{{$item->id}}','Item{{$item->id}}','save{{$item->id}}Button');" 
+              id="Button{{$item->id}}" style="float:right">
               <i class="fas fa-edit "></i>
               </button>
-              <form method="POST" action="{{route('update-item', [$store->id , $item->id]) }}">
+
+              <form method="POST" action="{{route('update-item', [$store->id , $item->id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                
-              </h6>
+             
+
+              </div>
+
+              <div class="Edit{{$item->id}}" style="display:none">
+                <br><br>
+                <span class="text-primary"><b> Title:</b></span>
+                <input type="text" class="form-control form-control-user " id="title" name="title"  
+                            value="{{ $item->title }}" >
+
+              </div>
+
             </div>
+             
+              
+          
             <div class="card-body">
           
             <div class="Item{{$item->id}}">
-            {{$item->picture}}
+            <img src="{{ url('storage/'.$item->picture) }}" alt="No Image" class="img-thumbnail ">
             </div>
 
             <div class="Edit{{$item->id}}" style="display:none">
-            <input type="file" class="form-control form-control-user " id="picture{{$item->id}}" name="picture{{$item->id}}"  
-                        value="{{ $item->picture}}}" >
-
-            </div>
             
-            </div>
-          </div>
+            <input type="file" class="form-control " id="picture" name="picture"  
+                        value="{{ $item->picture }}" >
 
-  </div>
+                        
 
-  <div class="col-lg-3 mb-4">
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Item Title</h6>
             </div>
-            <div class="card-body">
-           
-            <div class="Item{{$item->id}}">
-            {{$item->title}}
+            <div class="card-body Item{{$item->id}}">
+            <h6> <span class="text-primary"><i class="fas fa-list-ul "></i><b> Category:</b></span> {{$item->category}}</h6>
             </div>
 
             <div class="Edit{{$item->id}}" style="display:none">
-            <input type="text" class="form-control form-control-user " id="title{{$item->id}}" name="title{{$item->id}}"  
-                        value="{{ $item->title }}" >
-
-            </div>
-
-            </div>
-          </div>
-
-  </div>
-
-
-  <div class="col-lg-3 mb-4">
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Item Category</h6>
-            </div>
-            <div class="card-body">
-              
-            <div class="Item{{$item->id}}">
-            {{$item->category}}
-            </div>
-
-            <div class="Edit{{$item->id}}" style="display:none">
-            <input type="text" class="form-control form-control-user " id="category{{$item->id}}" name="category{{$item->id}}"  
+            <br><br>
+            <span class="text-primary"><i class="fas fa-list-ul "></i><b> Category:</b></span>
+            <input type="text" class="form-control form-control-user " id="category" name="category"  
                         value="{{ $item->category }}" >
 
             </div>
 
-            </div>
-          </div>
-
-  </div>
-
-  <div class="col-lg-3 mb-4">
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Item Price</h6>
-            </div>
-            <div class="card-body">
-             
-             <div class="Item{{$item->id}}">
-            {{$item->price}}
+            <div class="card-body Item{{$item->id}}">
+            <h6>
+            <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Price:</b></span>
+             {{$item->price}}</h6>
             </div>
 
             <div class="Edit{{$item->id}}" style="display:none">
-            <input type="text" class="form-control form-control-user " id="price{{$item->id}}" name="price{{$item->id}}"  
+            <br>
+            <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Price:</b></span>
+            <input type="text" class="form-control form-control-user " id="price" name="price"  
                         value="{{ $item->price }}" >
 
             </div>
+            <br>
+            <button type="submit" class=" btn-primary btn" id="save{{$item->id}}Button"
+     style="display:none">Save</button>
             </div>
           </div>
+         
 
-  </div>
-
-</div>
-
+    </div>
+  
 
 
-<button type="submit" class=" btn-primary btn" id="save{{$item->id}}Button"
-     style="display:none">Save</button>
+
 
      </form>
 
 @endforeach
+
+</div>
 
 
      
