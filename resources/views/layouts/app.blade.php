@@ -10,7 +10,7 @@
     <title>Mystery Meal Web App</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('public/js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,23 +21,23 @@
   <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
 
   <!-- Custom styles for this template-->
-  <link href="public/css/sb-admin-2.css" rel="stylesheet">
+  <link href="css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gradient-primary">
   @yield('content')
 
       <!-- Bootstrap core JavaScript-->
-      <script src="public/vendor/jquery/jquery.min.js"></script>
-    <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="public/js/sb-admin-2.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 
 
 </body>
