@@ -39,11 +39,11 @@
 
 
               <div class="showEdit" style="display:none">
-                    
-                    <input type="text" class="form-control form-control-user " id="s_name" name="s_name"  
+
+                    <input type="text" class="form-control form-control-user " id="s_name" name="s_name"
                               value="{{ $store->s_name }}" >
                     </div>
-              
+
             </div>
             <div class="card-body">
 
@@ -53,10 +53,10 @@
             {{$store->s_name}}
             </div>
 
-            
+
               <div class="showEdit" style="display:none">
-                    
-              <input type="file" class="form-control form-control-user " id="s_picture" name="s_picture"  
+
+              <input type="file" class="form-control form-control-user " id="s_picture" name="s_picture"
               accept="image/*" value="{{ $store->s_picture }}" >
               </div>
 
@@ -65,7 +65,7 @@
 
   </div>
 
-  
+
 
   <div class="col-lg-3 mb-4">
           <!-- DataTales Example -->
@@ -79,7 +79,7 @@
             </div>
 
             <div class="showEdit" style="display:none">
-            <input type="text" class="form-control form-control-user " id="s_category" name="s_category"  
+            <input type="text" class="form-control form-control-user " id="s_category" name="s_category"
                         value="{{ $store->s_category }}" >
 
             </div>
@@ -97,14 +97,14 @@
               <h6 class="m-0 font-weight-bold text-primary">Store Address</h6>
             </div>
             <div class="card-body">
-              
+
 
             <div class="storeInfo">
             {{$store->s_address}}
             </div>
 
             <div class="showEdit" style="display:none">
-            <input type="text" class="form-control form-control-user " id="s_address" name="s_address"  
+            <input type="text" class="form-control form-control-user " id="s_address" name="s_address"
                         value="{{ $store->s_address }}" >
 
             </div>
@@ -126,7 +126,7 @@
             </div>
 
             <div class="showEdit" style="display:none">
-            <input type="text" class="form-control form-control-user " id="s_phone" name="s_phone"  
+            <input type="text" class="form-control form-control-user " id="s_phone" name="s_phone"
                         value="{{ $store->s_phone }}" >
 
             </div>
@@ -153,7 +153,7 @@
             </div>
 
             <div class="showEdit" style="display:none">
-            <input type="text" class="form-control form-control-user " id="s_close_time" name="s_close_time"  
+            <input type="text" class="form-control form-control-user " id="s_close_time" name="s_close_time"
                         value="{{ $store->s_close_time }}" >
 
             </div>
@@ -201,11 +201,11 @@
             <h6 class="m-0 font-weight-bold text-primary">Item Picture</h6>
           </div>
           <div class="card-body">
-           
-          <input type="file" class="form-control form-control-user"  id="picture" name="picture" 
+
+          <input type="file" class="form-control form-control-user"  id="picture" name="picture"
             accept="image/*">
-                    
-                   
+
+
 
           </div>
         </div>
@@ -220,7 +220,7 @@
           </div>
           <div class="card-body">
 
-                    <input type="text" class="form-control form-control-user " id="title" name="title"  
+                    <input type="text" class="form-control form-control-user " id="title" name="title"
                     value="{{ old('title') }}"  placeholder="Item Title... ">
 
 
@@ -237,10 +237,15 @@
             <h6 class="m-0 font-weight-bold text-primary">Item Category</h6>
           </div>
           <div class="card-body">
-            
-         
-          <input type="text" class="form-control form-control-user " id="category" name="category"  
-                    value="{{ old('category') }}" placeholder="Item Category ...">
+
+
+            <select class="form-control form-control-user " id="category" name="category">
+                        <option value="Burgers">Burgers</option>
+                        <option value="Sandwiches">Sandwiches</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Desserts">Desserts</option>
+                        <option value="Others">Others</option>
+            </select>
 
 
           </div>
@@ -255,8 +260,8 @@
             <h6 class="m-0 font-weight-bold text-primary">Item Price</h6>
           </div>
           <div class="card-body">
-            
-          <input type="text" class="form-control form-control-user " id="price" name="price"  
+
+          <input type="number" class="form-control form-control-user " id="price" name="price"
                     value="{{ old('price') }}" placeholder="Item Price ...">
 
           </div>
@@ -285,17 +290,17 @@
   <div class="col-lg-3 mb-4">
           <!-- DataTales Example -->
 
-        
+
 
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              
-          
+
+
 
               <div class="Item{{$item->id}}">
               <h6 class="m-0 font-weight-bold text-primary" style="float:left">{{$item->title}}</h6>
-              <button class="btn" onclick="showEdit(this.id,'Edit{{$item->id}}','Item{{$item->id}}','save{{$item->id}}Button');" 
+              <button class="btn" onclick="showEdit(this.id,'Edit{{$item->id}}','Item{{$item->id}}','save{{$item->id}}Button');"
               id="Button{{$item->id}}" style="float:right">
               <i class="fas fa-edit "></i>
               </button>
@@ -304,34 +309,34 @@
                 @csrf
                 @method('PUT')
 
-             
+
 
               </div>
 
               <div class="Edit{{$item->id}}" style="display:none">
                 <br><br>
                 <span class="text-primary"><b> Title:</b></span>
-                <input type="text" class="form-control form-control-user " id="title" name="title"  
+                <input type="text" class="form-control form-control-user " id="title" name="title"
                             value="{{ $item->title }}" >
 
               </div>
 
             </div>
-             
-              
-          
+
+
+
             <div class="card-body">
-          
+
             <div class="Item{{$item->id}}">
             <img src="{{ url('storage/'.$item->picture) }}" alt="No Image" class="img-thumbnail ">
             </div>
 
             <div class="Edit{{$item->id}}" style="display:none">
-            
-            <input type="file" class="form-control " id="picture" name="picture"  
+
+            <input type="file" class="form-control " id="picture" name="picture"
                         value="{{ $item->picture }}" >
 
-                        
+
 
             </div>
             <div class="card-body Item{{$item->id}}">
@@ -341,8 +346,14 @@
             <div class="Edit{{$item->id}}" style="display:none">
             <br><br>
             <span class="text-primary"><i class="fas fa-list-ul "></i><b> Category:</b></span>
-            <input type="text" class="form-control form-control-user " id="category" name="category"  
+            <select class="form-control form-control-user " id="category" name="category"
                         value="{{ $item->category }}" >
+                        <option value="Burgers">Burgers</option>
+                        <option value="Sandwiches">Sandwiches</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Desserts">Desserts</option>
+                        <option value="Others">Others</option>
+            </select>
 
             </div>
 
@@ -355,7 +366,7 @@
             <div class="Edit{{$item->id}}" style="display:none">
             <br>
             <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Price:</b></span>
-            <input type="text" class="form-control form-control-user " id="price" name="price"  
+            <input type="number" class="form-control form-control-user " id="price" name="price"
                         value="{{ $item->price }}" >
 
             </div>
@@ -364,10 +375,10 @@
      style="display:none">Save</button>
             </div>
           </div>
-         
+
 
     </div>
-  
+
 
 
 
@@ -376,10 +387,15 @@
 
 @endforeach
 
+
 </div>
 
 
-     
+<a href="/owner/stores/{{$store->id}}/createbox" class=" d-sm-inline-block btn btn-sm btn-primary shadow-sm">Create a Box <i
+             class="fas fa-box fa-sm text-white-50"></i> </a>
+
+
+
 
 <br><br><br><br><br><br><br><br>
 

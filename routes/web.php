@@ -19,7 +19,7 @@ Auth::routes();
 
 
 
-    
+
 Route::get('/', function () {
     return view('/auth/login');
 })->middleware('guest');
@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 
 
-//admin : 
+//admin :
 
 Route::group(['middleware' => ['can:access-admin']], function () {
     // Routes available to admin user only.
@@ -75,7 +75,7 @@ Route::get('/admin/stores/{store}', 'Admin\StoresController@show_info');
 
 
 Route::group(['middleware' => ['can:access-owner']], function () {
-    
+
     // Routes available to client user only.
 
 
@@ -106,17 +106,22 @@ Route::get('/owner/stores/{store}/edit', 'Owner\StoresController@edit_info');
 
 Route::put('/owner/stores/{store}', 'Owner\StoresController@update_info');
 
+Route::get('/owner/stores/{store}/createbox', 'Owner\StoresController@create_box');
+
+Route::post('/owner/stores/{store}/createbox', 'Owner\StoresController@store_box');
+
 Route::put('/owner/stores/{store}/{item}', 'Owner\StoresController@update_items')->name("update-item");
 
 
+//owner_boxes :
+
+Route::get('/owner/boxes/', 'Owner\BoxController@index');
+
+Route::post('/owner/boxes/', 'Owner\BoxController@store_info');
+
+Route::get('/owner/boxes/create', 'Owner\BoxController@create_info');
+
+// Route::get('/owner/boxes/{box}', 'Owner\BoxController@show_info');
 
 
 });
-
-
-
-
-
-
-
-

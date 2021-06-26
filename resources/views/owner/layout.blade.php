@@ -41,7 +41,7 @@
                 </div>
             </a>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -69,7 +69,14 @@
                     <span>My Stores</span></a>
             </li>
 
-            
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+              <a class="nav-link" href="/owner/boxes">
+                  <i class="fas fa-fw fa-box"></i>
+                  <span>My Boxes</span></a>
+          </li>
+
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -114,7 +121,7 @@
                 Addons
             </div>
 
-            
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -358,7 +365,7 @@
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Username:
                         @auth
-                        {{Auth::user()->username}} 
+                        {{Auth::user()->username}}
                         @endauth
                     </a>
                     <hr>
@@ -386,7 +393,7 @@
 
     </nav>
     <!-- End of Topbar -->
-      
+
         @yield('owner_home_content')
 
             <!-- Footer -->
@@ -435,7 +442,7 @@
     @csrf
     </form>
 
-    
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="/vendor/jquery/jquery.min.js"></script>

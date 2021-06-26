@@ -22,6 +22,16 @@ class Store extends Model
         return $this->hasMany(Items::class);
     }
 
+    public function box()
+    {
+        return $this->hasMany(Box::class);
+    }
 
-    
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
+
 }
