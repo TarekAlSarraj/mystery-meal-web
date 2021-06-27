@@ -48,7 +48,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/admin">
+                <a class="nav-link" href="/owner">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -74,6 +74,12 @@
               <a class="nav-link" href="/owner/boxes">
                   <i class="fas fa-fw fa-box"></i>
                   <span>My Boxes</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/owner/orders">
+                <i class="fas fa-fw fa-shopping-cart"></i>
+                <span>My Orders</span></a>
           </li>
 
 

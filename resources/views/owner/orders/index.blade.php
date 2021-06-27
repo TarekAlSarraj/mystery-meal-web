@@ -13,14 +13,14 @@
 
 <!-- Menu Items Content Row -->
 <br>
-<h1 class="text-primary"><b>My Mystery Boxes <i class="fas fa-boxes"></i></b></h1>
+<h1 class="text-primary"><b>My Mystery orders <i class="fas fa-orders"></i></b></h1>
 
 <br><br>
 
 
 <div class="row">
-@foreach ($boxes as $box)
-  <div class="col-lg-3 mb-4" id="boxCard{{$box->id}}">
+@foreach ($orders as $order)
+  <div class="col-lg-3 mb-4" id="orderCard{{$order->id}}">
           <!-- DataTales Example -->
 
 
@@ -31,7 +31,7 @@
 
 
 
-              <h6 class="m-0 font-weight-bold text-primary" style="float:left">Box #{{$box->id}}</h6>
+              <h6 class="m-0 font-weight-bold text-primary" style="float:left">order #{{$order->id}}</h6>
 
 
             </div>
@@ -39,11 +39,11 @@
             <div class="card-body">
 
             <h6>
-            <span class="text-primary"><i class="fas fa-box-open "></i><b> Box Categories:</b></span>
+            <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> order Categories:</b></span>
               @php $i=0 @endphp
-              @foreach($box->category  as $cat)
+              @foreach($order->category  as $cat)
 
-              @if ($i== count($box->category)-1)
+              @if ($i== count($order->category)-1)
               {{$cat}}
               @else
                 {{$cat}} |
@@ -55,19 +55,12 @@
            <br>
 
            <span class="text-primary"><i class="fas fa-list-ul "></i><b> Number of items:</b></span>
-            {{$box->nb_of_items}}
+            {{$order->nb_of_items}}
 
              <br><br>
 
             <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Total Price:</b></span>
-             ${{$box->total_price}}
-             <br><br>
-             <span class="text-primary"><i class="fas fa-store "></i><b> Store Name:</b></span>
-              @php $store=\App\Store::where('id','=',$box->store_id)->first(); @endphp
-              {{$store->s_name}}
-
-
-
+             ${{$order->total_price}}
 
 
             </div>

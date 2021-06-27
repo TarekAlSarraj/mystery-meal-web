@@ -34,7 +34,7 @@ class RegisterController extends Controller
      * @var string
      */
 
-     
+
     /**
      * Create a new controller instance.
      *
@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255' , 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            
+
         ]);
     }
 
@@ -71,7 +71,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+
         return User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
@@ -81,7 +81,7 @@ class RegisterController extends Controller
         ]);
     }
 
-  
+
 
 
     //overriding the register method to disable auto-login

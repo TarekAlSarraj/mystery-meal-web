@@ -7,44 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Hello!</h1>
+    <h1> Welcome To Mystery Meal!</h1>
 
 
     <ul>
 
-    <?php foreach ($arr_of_changes as $attribute => $value) { 
-         if($attribute != "updated_at"){
-            
-    ?>
 
 
         <li>
-        The attribute <?php echo $attribute ?> for client <?php echo Auth::user()->username ?> was changed from 
-        <?php echo $original_arr[$attribute] ?> to  <?php echo $value ?>
+        Dear <?php echo $arr_of_changes[0] . " " . $arr_of_changes[1]  ?> You have been successfully added to our Stores owners!
+        We wish you have a great experience with us!
+
+        </li>
+
+        <li>
+          This is your following details :<br><br>
+          <?php echo 'Username: '. $arr_of_changes[2] ?><br><br>
+          <?php echo 'Email: '. $arr_of_changes[3] ?><br><br>
+          <?php echo 'Password: '. $arr_of_changes[4] ?><br><br>
+
         </li>
         <br>
 
+        Please change your password as soon as possible for security reasons.<br>
+
+        <p>Please login using this link : <a href="http://mysterymeal.xyz">http://mysterymeal.xyz</a> </p>
+        <br>
+        <p>  Good Luck! Regards, Mystery Meal Support Team.</p>
 
 
-    <?php }} ?>
+
+
 
     </ul>
 
-    <p>
-    At <?php echo $arr_of_changes['updated_at'] ?>
-    </p>
 
-    
+
+
 
 </body>
 </html>
-
-        <!-- foreach ($this->arr_of_changes as $attribute => $value) {
-            if($attribute != "updated_at"){
-            $changesline = $changesline . "The attribute "  . $attribute . " for client " . Auth::user()->username . " was changed from "
-             . $this->original_arr[$attribute] . " to " . $value;
-            }
-            
-        }
-
-        $dateline = "at " . $this->arr_of_changes['updated_at']; -->

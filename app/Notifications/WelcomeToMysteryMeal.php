@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UpdateIsMade extends Notification
+class WelcomeToMysteryMeal extends Notification
 {
     use Queueable;
 
@@ -45,12 +45,12 @@ class UpdateIsMade extends Notification
      */
     public function toMail($notifiable)
     {
-       
 
-        return (new MailMessage)->view('emails.updateismade' , ['arr_of_changes' => $this->arr_of_changes , 
+
+        return (new MailMessage)->view('emails.updateismade' , ['arr_of_changes' => $this->arr_of_changes ,
         'original_arr' => $this->original_arr]);
     }
-    
+
     /**
      * Get the array representation of the notification.
      *
@@ -60,7 +60,7 @@ class UpdateIsMade extends Notification
     public function toArray($notifiable)
     {
         return [
-            'arr_of_changes' => $this->arr_of_changes , 
+            'arr_of_changes' => $this->arr_of_changes ,
             'original_arr' => $this->original_arr
         ];
     }

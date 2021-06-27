@@ -17,13 +17,18 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->float('total_order_price');
-            $table->integer('nb_of_boxes');
+
+            $table->foreignId('box_id')
+            ->nullable()
+            ->constrained()
+            ->onDelete('cascade');
+
 
             $table->foreignId('store_id')
             ->nullable()
             ->constrained()
             ->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }
