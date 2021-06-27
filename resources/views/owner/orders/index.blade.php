@@ -55,7 +55,7 @@
              <br><br>
 
             <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Store:</b></span>
-             @php $store = \App\Store::where('store_id','=',$order->store_id)->get(); @endphp
+             @php $store = \App\Store::where('id','=',$order->store_id)->get(); @endphp
              {{$store->s_name}}
 
 
