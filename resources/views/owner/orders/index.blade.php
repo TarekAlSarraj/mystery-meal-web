@@ -39,9 +39,7 @@
             <div class="card-body">
 
             <h6>
-            <span class="text-primary"><i class="fas fa-user-tie "></i><b> Customer: </b></span>
-             @php $user = \App\User::where('id','=',$order->customer_id)->first(); @endphp
-            {{$user->firstname}} {{$user->lastname}}
+            <span class="text-primary"><i class="fas fa-user-tie "></i><b> Customer ID: #{{$order->customer_id}}</b></span>
 
            </h6>
            <br>
