@@ -31,7 +31,7 @@
 
 
 
-              <h6 class="m-0 font-weight-bold text-primary" style="float:left">order #{{$order->id}}</h6>
+              <h6 class="m-0 font-weight-bold text-primary" style="float:left">Order #{{$order->id}}</h6>
 
 
             </div>
@@ -39,28 +39,24 @@
             <div class="card-body">
 
             <h6>
-            <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> order Categories:</b></span>
-              @php $i=0 @endphp
-              @foreach($order->category  as $cat)
-
-              @if ($i== count($order->category)-1)
-              {{$cat}}
-              @else
-                {{$cat}} |
-              @endif
-                @php $i++ @endphp
-              @endforeach
+            <span class="text-primary"><i class="fas fa-user-tie "></i><b> Customer ID: #{{$order->customer_id}}</b></span>
 
            </h6>
            <br>
 
-           <span class="text-primary"><i class="fas fa-list-ul "></i><b> Number of items:</b></span>
-            {{$order->nb_of_items}}
+           <span class="text-primary"><i class="fas fa-box-open "></i><b> Box #{{$order->box_id}}</b></span>
+
 
              <br><br>
 
             <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Total Price:</b></span>
-             ${{$order->total_price}}
+             ${{$order->total_order_price}}
+
+             <br><br>
+
+            <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Store:</b></span>
+             @php $store = \App\Store::where('store_id','=',$order->store_id)->get(); @endphp
+             {{$store->s_name}}
 
 
             </div>
