@@ -34,9 +34,29 @@
               <h6 class="m-0 font-weight-bold text-primary" style="float:left">Order #{{$order->id}}</h6>
 
               <div style="float:right;">
-                <span class="badge badge-warning" >{{$order->status}}</span>
-                &nbsp;
-                <i class="fas fa-check" style="color:green"></i>
+                <span class="badge
+                @if ($order->status=='pending') badge-warning
+                @elseif($order->status=='accepted' || $order->status=='delivered') badge-success
+                @else badge-danger
+                @endif
+                " onclick="statusJs();" id="statusBadge">{{$order->status}}</span>
+                <div id="statusInput" style="display:none;">
+                  <form method="POST" action="/owner/orders/{{$order->id}}/update_status" >
+                    @csrf
+                    @method('PUT')
+                  <select class="form-group form-control-user" name="status" value="{{$order->status}}">
+                    <option value="pending">set status</option>
+                    <option value="pending">pending</option>
+                    <option value="accepted">accepted</option>
+                    <option value="rejected">rejected</option>
+                    <option value="delivered">delivered</option>
+                  </select>
+                  <button type="submit" class=" btn-primary" id="createButton">
+                     <i class="fas fa-check"></i> </button>
+                  </form>
+
+                </div>
+
               </div>
 
             </div>
@@ -59,9 +79,14 @@
 
              <br><br>
 
-            <span class="text-primary"><i class="fas fa-dollar-sign "></i><b> Store:</b></span>
+            <span class="text-primary"><i class="fas fa-store "></i><b> Store:</b></span>
              @php $store = \App\Store::where('id','=',$order->store_id)->first(); @endphp
              {{$store->s_name}}
+
+             <br><br>
+
+            <span class="text-primary"><i class="fas fa-clock "></i><b> Ordered at:</b></span>
+             {{$order->created_at}}
 
 
             </div>

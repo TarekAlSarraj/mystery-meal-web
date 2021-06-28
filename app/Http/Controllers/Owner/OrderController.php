@@ -7,6 +7,7 @@ use ILluminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller as Controller;
 use App\Store;
 use App\Order;
+use App\User;
 
 class OrderController extends Controller
 {
@@ -34,6 +35,17 @@ public function index(){
         }
     }
     return view('/owner/orders.index', ['orders' => $orders_arr]);
+}
+
+public function update_status(Order $order){
+
+
+  $order->update([
+      'status' => request('status'),
+
+        ]);
+
+   return redirect('/owner/orders');
 }
 
 

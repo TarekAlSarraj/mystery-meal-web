@@ -127,6 +127,7 @@ Route::get('/owner/boxes/create', 'Owner\BoxController@create_info');
 //owner_orders :
 
 Route::get('/owner/orders/', 'Owner\OrderController@index');
+Route::put('/owner/orders/{order}/update_status', 'Owner\OrderController@update_status');
 
 
 });

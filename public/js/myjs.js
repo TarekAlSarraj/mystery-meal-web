@@ -226,3 +226,18 @@ function toggleCreateButton(){
     }
   }
 }
+
+
+
+function statusJs(){
+  if(document.getElementById('statusInput').style.display=="none"){
+        document.getElementById('statusInput').style.display="block";
+        document.getElementById('statusBadge').style.display="none";
+
+  }
+  else{
+      document.getElementById('statusInput').style.display="none";
+      document.getElementById('statusBadge').style.display="block";
+  }
+
+}

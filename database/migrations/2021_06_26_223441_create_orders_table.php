@@ -29,7 +29,7 @@ class CreateOrdersTable extends Migration
             ->constrained()
             ->onDelete('cascade');
 
-            $table->timestamps();
+            $table->timestamp('time')->useCurrent = true;
 
             $table->string('status')->default('pending');
         });
