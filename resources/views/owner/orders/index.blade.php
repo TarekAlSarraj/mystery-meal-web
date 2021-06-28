@@ -33,7 +33,7 @@
 
               <h6 class="m-0 font-weight-bold text-primary" style="float:left">Order #{{$order->id}}</h6>
 
-              <span class="badge badge-warning">{{$order->status}}</span>
+              <span class="badge badge-warning" style="float:right;">{{$order->status}}</span>
 
             </div>
 
