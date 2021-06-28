@@ -30,6 +30,8 @@ class CreateOrdersTable extends Migration
             ->onDelete('cascade');
 
             $table->timestamps();
+
+            $table->string('status')->default('pending');
         });
     }
 
