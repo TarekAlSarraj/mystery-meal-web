@@ -35,8 +35,8 @@
 
               <div style="float:right;">
                 <span class="badge badge-warning" >{{$order->status}}</span>
-                &bsp;
-                <i class="fas fa-check" class="text-primary"></i>
+                &nbsp;
+                <i class="fas fa-check" style="color:green"></i>
               </div>
 
             </div>
