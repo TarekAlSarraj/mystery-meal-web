@@ -33,7 +33,11 @@
 
               <h6 class="m-0 font-weight-bold text-primary" style="float:left">Order #{{$order->id}}</h6>
 
-              <span class="badge badge-warning" style="float:right;">{{$order->status}}</span>
+              <div style="float:right;">
+                <span class="badge badge-warning" >{{$order->status}}</span>
+                &bsp;
+                <i class="fas fa-check" class="text-primary"></i>
+              </div>
 
             </div>
 
